@@ -1,0 +1,56 @@
+{% extends "manager_layout.html" %}
+
+{% block title %}
+    Homepage
+{% endblock %}
+
+{% block main %}
+<div class="container-fluid">
+    <div class="row">
+        <div id="infodisplay_col" class="col-md-6">
+            <div class="blocktext" style="background-color:#f0f0f5;color:#006699;padding:20px;">
+                <p>
+                    Dear {{ manager_name }},
+                </p>
+                <p>
+                    our website makes it easy to assess your leadership style. Knowing how you lead your team can help you understand dynamics better and improve your leadership competencies. If you want to understand how you lead your team, enter the employees emails under „Request feedback“. Emails with login credentials will be sent to your employees with which they can access a survey to assess your leadership style. Please also fill out the survey under „Self-assessment“, as if you were one of your employees, to see how your self-image compares to that of your employees of you.
+                    Your data will be used for nothing else than to generate your personal feedback report to which only you have access.
+                    Please reflect upon the results of your outcome but remember that different leadership styles can be positive and well-suited for your employees and your specific projects.
+                    We wish you great insights from our leadership measurement tool.
+                </p>
+                <p>
+                    Your,
+                </p>
+                <p>
+                    ANMO team
+                </p>
+                </div>
+            </div>
+        <div id="emaildisplay_col" class="col-md-6">
+            <table class="table table-striped">
+                <thead>
+                    <th>Feedback giver</th>
+                    <th>Status</th>
+                </thead>
+
+                <tbody>
+                 <tr>
+                    <td>{% for email_of_requested_employees_ in emails_of_requested_employees_ %}
+                    <p>
+                        {{ email_of_requested_employees_ }}
+                    </p>
+                    {% endfor %}
+                    </td>
+
+                    <td>{% for i in awaiting_or_received %}
+                    <p>
+                        {{ i }}
+                    </p>
+                    {% endfor %}
+                    </p>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+{% endblock %}

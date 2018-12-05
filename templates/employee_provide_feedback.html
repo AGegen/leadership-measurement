@@ -1,0 +1,743 @@
+{% extends "employee_layout.html" %}
+
+{% block title %}
+    Provide Feedback
+{% endblock %}
+
+{% block main %}
+ <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.16.0/jquery.validate.min.js"></script>
+
+    <h1 class="mb-3">Form</h1>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+    <form action="/employee_provide_feedback" method="post" class="needs-validation" id="frm" novalidate>
+        <p>Feedback for {{ manager_name_ }}</p>
+        <p>1 My tasks motivate me and I get excited about my work.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q1">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>2 I always know what may task is and can get straight to work.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q2">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>3 My work varies in the amount of concentration and thinking required.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q3">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>4 Sometimes I am bored in my job.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q4">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>5 I often do the same work over and over again.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q5">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>6 I can flexibly decide when to do wich task.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q6">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+         <p>7 I have a typical daily rountine at work.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q7">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+         <p>8 My manager tells me what to do and I don't suggest tasks.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q8">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+         <p>9 My manager encourages me to come up with different ideas.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q9">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+         <p>10 I do my work well because I want to.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q10">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+         <p>11 I always try not to dissapoint my manager.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q11">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+         <p>12 I feel challenged by my work.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q12">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>13 I get along with my manager on a professional level.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q13">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>13 I get along with my manager on a professional level.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q13">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>14 I get along with my manager on a personal level.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q14">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>15 My manager takes advice from me and other team members.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q15">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>16 I sometimes can't fulfill the expectations of my manager.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q16">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>17 I feel very controlled in my job.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q17">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>18 I can identify with the values in the company.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q18">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>19 I can identify witht he mission of the company.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q19">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>20 We have a very relaxed work atmosphere in the company.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q20">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>21 We are very professional in the company.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q21">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>22 I like the work atmosphere in the company.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q22">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>23 Sometimes it is difficult for me to get my ideas heard.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q23">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>24 We have established ways of communicating ideas.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q24">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>25 I have a lot of influence on our team results.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q25">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>26 My team can work well together.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q26">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>27 I get along with my team on a personal level.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q27">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>28 I get along with my team on a professional level.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q28">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>29 The whole team is proud of the company.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q29">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>30 I sometimes feel like I can't contribute well to the team/task.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q30">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>31 We have many regular team meetings.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q31">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>32 My company is very innovative.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q32">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>33 Our team vision is to provide the world with a new solution to a problem.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q33">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>34 Our team vision is to provide the best solution out there.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q34">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>35 The company has innovative work flow processes.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q35">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>36 How much has changed in your comany in the past year?</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q36">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>37 I slower pace of change would be good for the company.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q37">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>38 We are growing quite fast.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q38">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>39 I am thinking of changing jobs.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q39">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <p>40 I can imagine staying with the company for the next 5 years.</p>
+        <div class="form-group">
+            <select class="custom-select" name="Q40">
+                <option disabled selected value="">Select</option>
+                <option value="1">Fully disagree</option>
+                <option value="2">Partly disagree</option>
+                <option value="3">Neither agree or disagree</option>
+                <option value="4">Partly agree</option>
+                <option value="5">Fully agree</option>
+            </select>
+            <div class="invalid-feedback">
+              Please select an option.
+            </div>
+        </div>
+        <!--Submit button-->
+        <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+        <button class="btn btn-primary" type="Submit">Submit</button>
+    </form>
+    <script>
+    // Example starter JavaScript for disabling form submissions if there are invalid fields
+    // (function() {
+    //   'use strict';
+    //   window.addEventListener('load', function() {
+    //     // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    //     var forms = document.getElementsByClassName('needs-validation');
+    //     // Loop over them and prevent submission
+    //     var validation = Array.prototype.filter.call(forms, function(form) {
+    //       form.addEventListener('submit', function(event) {
+    //         if (form.checkValidity() === false) {
+    //           event.preventDefault();
+    //           event.stopPropagation();
+    //         }
+    //         form.classList.add('was-validated');
+    //       }, false);
+    //     });
+    //   }, false);
+    // })();
+
+    $("#frm").validate(
+    {
+      rules:
+      {
+      	Q1: {
+    	    	required: true
+        },
+        Q2: {
+    	required: true
+        },
+        Q3: {
+    	required: true
+        },
+        Q4: {
+        	required: true
+        },
+        Q5: {
+        	required: true
+        },
+        Q6: {
+        	required: true
+        },
+        Q7: {
+        	required: true
+        },
+        Q8: {
+        	required: true
+        },
+        Q9: {
+        	required: true
+        },
+        Q10: {
+        	required: true
+        },
+        Q11: {
+        	required: true
+        },
+        Q12: {
+        	required: true
+        },
+        Q13: {
+        	required: true
+        },
+        Q14: {
+        	required: true
+        },
+        Q15: {
+        	required: true
+        },
+        Q16: {
+        	required: true
+        },
+        Q17: {
+        	required: true
+        },
+        Q18: {
+        	required: true
+        },
+        Q19: {
+        	required: true
+        },
+        Q20: {
+        	required: true
+        },
+        Q21: {
+        	required: true
+        },
+        Q22: {
+        	required: true
+        },
+        Q23: {
+        	required: true
+        },
+        Q24: {
+        	required: true
+        },
+        Q25: {
+        	required: true
+        },
+        Q26: {
+        	required: true
+        },
+        Q27: {
+        	required: true
+        },
+        Q28: {
+        	required: true
+        },
+        Q29: {
+        	required: true
+        },
+        Q30: {
+        	required: true
+        },
+        Q31: {
+        	required: true
+        },
+        Q32: {
+        	required: true
+        },
+        Q33: {
+        	required: true
+        },
+        Q34: {
+        	required: true
+        },
+        Q35: {
+        	required: true
+        },
+        Q36: {
+        	required: true
+        },
+        Q37: {
+        	required: true
+        },
+        Q38: {
+        	required: true
+        },
+        Q39: {
+        	required: true
+        },
+        Q40: {
+        	required: true
+        }
+      }
+    });
+</script>
+{% endblock %}

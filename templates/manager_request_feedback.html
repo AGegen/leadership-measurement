@@ -1,0 +1,58 @@
+{% extends "manager_layout.html" %}
+
+{% block title %}
+    Request feedback
+{% endblock %}
+
+{% block main %}
+    <!--Input field for name of manager-->
+    <div class="container-fluid">
+        <div class="row">
+            <div id="infodisplay_col" class="col-md-6">
+                <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+                <h1 class="mb-3">Request feedback</h1>
+                <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+                <form action="/manager_request_feedback" method="post">
+                    <div class="form-group">
+                        <input autocomplete="off" autofocus class="form-control" name="email" placeholder="Email of feedback giver" type="text">
+                    </div>
+                     <!--Submit button-->
+                    <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+                    <button class="btn btn-primary" type="Submit">Submit</button>
+                </form>
+            </div>
+            <div id="emaildisplay_col" class="col-md-6">
+                <table class="table table-striped">
+                    <p></p>
+                <thead>
+                    <th>Requests have already been sent to:</th>
+                </thead>
+
+                <tbody>
+                 <tr>
+                    <td> {% for email_address in email_addresses %}
+                        <div>
+                            {{ email_address["email_address"] }}
+                        </div>
+                    {% endfor %}
+                    </td>
+                </tr>
+            </table>
+        </div>
+    <script>
+        document.querySelector('form').onsubmit = function(e) {
+            e.preventDefault();
+            $.get('/check_requests', {email: document.querySelector('input[name=email]').value}, function(data) {
+                if (data == 3) {
+                    document.querySelector('form').submit();
+                }
+                else if (data == 2) {
+                    alert('A request has already been sent to this email address.');
+                }
+                else if (data == 1) {
+                    alert('Please enter an email address.');
+                }
+            });
+        };
+    </script>
+{% endblock %}

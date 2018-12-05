@@ -1,0 +1,90 @@
+/*@font-face {*/
+/*   font-family: myFirstFont;*/
+/*   src: url(sansation_light.woff);*/
+/*}*/
+
+/** {*/
+/*   font-family: myFirstFont;*/
+/*}*/
+
+nav .navbar-brand
+{
+    /* size for brand */
+    font-size: xx-large;
+}
+
+/* colors for brand */
+nav .navbar-brand .blue
+{
+    color: #006699;
+}
+
+
+main .form-control
+{
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+main
+{
+    /* scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* center contents */
+    text-align: center;
+}
+
+main img
+{
+    /* constrain images on small screens */
+    max-width: 100%;
+}
+
+main table
+{
+    /* left-align contents */
+    text-align: left;
+}
+
+main tfoot
+{
+    /* boldface tables' footers */
+    font-weight: bold;
+}
+
+.error{
+  color: red;
+}
+
+.blocktext{
+    text-align: justify;
+}
+
+table {
+    border: 2px solid grey;
+}
+
+.custom-select{
+    width: 50%;
+}
+
+#chart-display-col {
+    border-right: 4px dotted black;
+    height: 500px;
+    padding: 0px;
+}
+
+#info-display-col {
+    height: 500px;
+    padding: 0px;
+}
+
+/* Style svg components*/
+svg {
+    fill: rgba(110, 205, 255, 0.54);
+    background-color: white;
+}

@@ -1,0 +1,400 @@
+{% extends "manager_layout.html" %}
+
+{% block title %}
+    View report
+{% endblock %}
+
+{% block main %}
+    <div class="header">
+        <h1>Leadership Report</h1>
+    </div>
+       <head>
+    	<meta charset="utf-8">
+    	<meta name="description" content="">
+    	<meta name="viewport" content="width=device-width, initial-scale=1">
+    	<h1 class="mb-3">Feedback for {{ manager_name }}</h1>
+
+    	<link rel="stylesheet" href="static/bootstrap.min.css">
+    	<link rel="stylesheet" href="static/style.css">
+    </head>
+    <body>
+         <div class="blocktext" style="background-color:#f0f0f5;color:#006699;padding:20px;">
+         This report summarizes the feedback concerning your leadership style that your chosen feedback givers
+         have provided and compares it to your self-assessment.
+         Please look at your results and identify your strengths and weaknesses and how these match with your
+         expectations. Reflect upon possible reasons for instances where your results do not match your expectations.
+         Based on these set yourself three goals concerning your leadership style that you would like to change. </p>
+         </div>
+        <h3 class="mb-3">You have feedback from {{ nroffeedbackers }} feedback givers </h3>
+         <h2 class="mb-3">Your overall score is {{ overallscore }} /5</h2>
+        <div class="header">
+            <h1>Score per Category</h1>
+        </div>
+    	<div class="container-fluid">
+            <div class="row">
+                <div id="chart-display-col" class="col-md-6" ></div>
+                <div id="info-display-col" class="col-md-6" >
+                    <h3 class="sub-header">Category: <span id="category-span"></span></h3>
+                    <div id="score"></div>
+                </div>
+            </div>
+        </div>
+
+	<div class="container-fluid">
+        <div class="row">
+            <div id="chart-display-col" class="col-md-6" >
+                <h3 class="sub-header">Employee Feedback</h3>
+            </div>
+            <div id="info-display-col" class="col-md-6" >
+                <h3 class="sub-header">Self Assessment:</h3>
+            </div>
+        </div>
+        <div class="row">
+            <div id="chart-display-col1" class="col-md-6" >
+                <h3 class="sub-header">Employee Feedback</h3>
+            </div>
+            <div id="info-display-col" class="col-md-6" >
+                <h3 class="sub-header">Self Assessment:</h3>
+            </div>
+        </div>
+    </div>
+    <p></p>
+    <div id="questiondisplay_col">
+            <table class="table table-striped">
+                <thead>
+                    <th>Question</th>
+                    <th>Score</th>
+                </thead>
+
+                <tbody>
+                 <tr>
+                    <td>
+                         <p>1 My tasks motivate me and I get excited about my work.</p>
+                    </td>
+                    <td>
+                        {{ Q1 }}
+                    </td>
+                 </tr>
+                 <tr>
+                    <td>
+                         <p>2 I always know what may task is and can get straight to work.</p>
+                    </td>
+                    <td>
+                        {{ Q2 }}
+                    </td>
+                 </tr>
+                 <tr>
+                    <td>
+                         <p>3 My work varies in the amount of concentration and thinking required.</p>
+                    </td>
+                     <td>
+                        {{ Q3 }}
+                    </td>
+                 </tr>
+                 <tr>
+                    <td>
+                         <p>4 Sometimes I am bored in my job.</p>
+                    </td>
+                    <td>
+                        {{ Q4 }}
+                    </td>
+                 </tr>
+                 <tr>
+                    <td>
+                         <p>5 I often do the same work over and over again.</p>
+                    </td>
+                    <td>
+                        {{ Q5 }}
+                    </td>
+                 </tr>
+                 <tr>
+                    <td>
+                         <p>6 I can flexibly decide when to do wich task.</p>
+                    </td>
+                    <td>
+                        {{ Q6 }}
+                    </td>
+                 </tr>
+                 <tr>
+                    <td>
+                         <p>7 I have a typical daily rountine at work.</p>
+                    </td>
+                    <td>
+                        {{ Q7 }}
+                    </td>
+                 </tr>
+                 <tr>
+                    <td>
+                         <p>8 My manager tells me what to do and I don't suggest tasks.</p>
+                    </td>
+                    <td>
+                        {{ Q8 }}
+                    </td>
+                 </tr>
+                 <tr>
+                    <td>
+                         <p>9 My manager encourages me to come up with different ideas.</p>
+                    </td>
+                    <td>
+                        {{ Q9 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <p>10 I do my work well because I want to.</p>
+                    </td>
+                    <td>
+                        {{ Q10 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <p>11 I always try not to dissapoint my manager.</p>
+                    </td>
+                    <td>
+                        {{ Q11 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <p>12 I feel challenged by my work.</p>
+                    </td>
+                    <td>
+                        {{ Q12 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <p>13 I get along with my manager on a professional level.</p>
+                    </td>
+                    <td>
+                        {{ Q13 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <p>14 I get along with my manager on a personal level.</p>
+                    </td>
+                    <td>
+                        {{ Q14 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <p>15 My manager takes advice from me and other team members.</p>
+                    </td>
+                    <td>
+                        {{ Q15 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <p>16 I sometimes can't fulfill the expectations of my manager.</p>
+                    </td>
+                    <td>
+                        {{ Q16 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <p>17 I feel very controlled in my job.</p>
+                    </td>
+                    <td>
+                        {{ Q17 }}
+                    </td>
+                </tr><tr>
+                    <td>
+                         <p>18 I can identify with the values in the company.</p>
+                    </td>
+                    <td>
+                        {{ Q18 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <p>19 I can identify witht he mission of the company.</p>
+                    </td>
+                    <td>
+                        {{ Q19 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <p>20 We have a very relaxed work atmosphere in the company.</p>
+                    </td>
+                    <td>
+                        {{ Q20 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <p>21 We are very professional in the company.</p>
+                    </td>
+                    <td>
+                        {{ Q21 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <p>22 I like the work atmosphere in the company.</p>
+                    </td>
+                    <td>
+                        {{ Q22 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <p>23 Sometimes it is difficult for me to get my ideas heard.</p>
+                    </td>
+                    <td>
+                        {{ Q23 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <p>24 We have established ways of communicating ideas.</p>
+                    </td>
+                    <td>
+                        {{ Q24 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <p>25 I have a lot of influence on our team results.</p>
+                    </td>
+                    <td>
+                        {{ Q25 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <p>26 My team can work well together.</p>
+                    </td>
+                    <td>
+                        {{ Q26 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <p>27 I get along with my team on a personal level.</p>
+                    </td>
+                    <td>
+                        {{ Q27 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <p>28 I get along with my team on a professional level.</p>
+                    </td>
+                    <td>
+                        {{ Q28 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <p>29 The whole team is proud of the company.</p>
+                    </td>
+                    <td>
+                        {{ Q29 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <p>30 I sometimes feel like I can't contribute well to the team/task.</p>
+                    </td>
+                    <td>
+                        {{ Q30 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <p>31 We have many regular team meetings.</p>
+                    </td>
+                    <td>
+                        {{ Q31 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <p>32 My company is very innovative.</p>
+                    </td>
+                    <td>
+                        {{ Q32 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <p>33 Our team vision is to provide the world with a new solution to a problem.</p>
+                    </td>
+                    <td>
+                        {{ Q33 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <p>34 Our team vision is to provide the best solution out there.</p>
+                    </td>
+                    <td>
+                        {{ Q34 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <p>35 The company has innovative work flow processes.</p>
+                    </td>
+                    <td>
+                        {{ Q35 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <p>36 How much has changed in your comany in the past year?</p>
+                    </td>
+                    <td>
+                        {{ Q36 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <p>37 I slower pace of change would be good for the company.</p>
+                    </td>
+                    <td>
+                        {{ Q37 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <p>38 We are growing quite fast.</p>
+                    </td>
+                    <td>
+                        {{ Q38 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <p>39 I am thinking of changing jobs.</p>
+                    </td>
+                    <td>
+                        {{ Q39 }}
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                         <p>40 I can imagine staying with the company for the next 5 years.</p>
+                    </td>
+                    <td>
+                        {{ Q40 }}
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+	<!-- Load JS libraries: jQuery, bootstrap, D3 -->
+	<script src="static/js/jquery.min.js"></script>
+	<script src="static/js/bootstrap.min.js"></script>
+	<script src="static/js/d3.js"></script>
+	<script src="static/js/queue.v1.min.js"></script>
+
+	<!-- Your implementation -->
+	<script src="static/js/main.js"></script>
+{% endblock %}
