@@ -13,6 +13,9 @@ from werkzeug.exceptions import default_exceptions, HTTPException, InternalServe
 from werkzeug.security import check_password_hash, generate_password_hash
 
 from helpers import manager_apology, employee_apology, login_required
+from waitress import serve
+import myapp
+
 
 import csv
 
@@ -38,7 +41,7 @@ app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
 # Configure CS50 Library to use SQLite database
-db = SQL("sqlite:///leadership.db")
+db = SQL("postgres://bjyjqgwerzmiay:3d2bd815eb2af71e90e7d394e270ec7cce26d6d21454941263b743d7e7ebbef0@ec2-54-197-234-33.compute-1.amazonaws.com:5432/df1fd26vkijepd")
 
 
 @app.route("/register", methods=["GET", "POST"])
